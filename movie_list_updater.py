@@ -25,7 +25,7 @@ def unprocess_all(rows):
 
 def update_movies():
     client = get_client()
-    cv = get_collection_view(client, URL)
+    cv = client.get_collection_view(URL)
     notion_results = cv.collection.get_rows()
     total_count = 0
     for count, result in enumerate(notion_results, 1):
