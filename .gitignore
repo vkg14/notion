@@ -1,0 +1,8 @@
+# Private stuff
+private_credentials.py
+
+# Other stuff
+__pycache__
+.python-version
+.DS_Store
+debug.log
