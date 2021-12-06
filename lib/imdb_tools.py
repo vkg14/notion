@@ -1,10 +1,9 @@
 import logging
-from operator import itemgetter
 import string
 
 from imdb import IMDb
 
-from utils import levenshtein
+from lib.levenshtein import levenshtein
 
 
 def _format_title(title: str):
