@@ -1,5 +1,5 @@
 ## Instructions
-- Run python movie_list_updater.py
+- Run `python movie_list_updater.py`
 ## Errors
 
 >>  Traceback (most recent call last):

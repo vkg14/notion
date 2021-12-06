@@ -1,8 +1,5 @@
-from json import JSONDecodeError
 import logging
 from os.path import dirname, realpath, join
-from os import path
-import time
 
 from imdb_tools import *
 from notion_tools import *
@@ -26,7 +23,8 @@ def unprocess_all(rows):
 def update_movies():
     client = get_client()
     cv = client.get_collection_view(URL)
-    notion_results = cv.collection.get_rows()
+    # We must supply a limit here as per: https://github.com/jamalex/notion-py/pull/294#pullrequestreview-607510490
+    notion_results = cv.collection.get_rows(limit=-1)
     total_count = 0
     for count, result in enumerate(notion_results, 1):
         total_count = count
@@ -43,15 +41,6 @@ def update_movies():
         logging.warning(f'Added year: {result.year}')
         image_url = get_poster_url(movie)
         add_page_cover(result, image_url)
-        ####### Leaving for posterity
-        #try:
-        #   add_gallery_embedded_image(result, image_url)
-        #except JSONDecodeError:
-        #    # This was happening when I used EmbedBlock rather than ImageBlock
-        #    # Embedding an image with an EmbedBlock doesn't work because
-        #    # of some type-based data validation that's happening
-        #    logging.warning(f"Got a JSON Decode Error for {result.name}")
-        ####### Leaving for posterity
         logging.warning(f'Added image for {result.name}')
         result.plot_outline = get_plot_outline(movie)
         result.processed = True
