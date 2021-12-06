@@ -1,8 +1,7 @@
-import logging
 from os.path import dirname, realpath, join
 
-from imdb_tools import *
-from notion_tools import *
+from lib.imdb_tools import *
+from lib.notion_tools import *
 from private_credentials import URL
 
 logging.basicConfig(

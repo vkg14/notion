@@ -1,8 +1,7 @@
 import logging
-import re
 
 from notion.block import EmbedBlock, ImageBlock
-from notion.client import COLLECTION_VIEW_TYPES, CollectionView, NotionClient
+from notion.client import NotionClient
 
 from private_credentials import TOKEN_V2
 

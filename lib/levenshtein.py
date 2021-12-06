@@ -1,4 +1,4 @@
-'''Utils'''
+'''Levenshtein distance between two strings'''
 
 
 def levenshtein(s1, s2):

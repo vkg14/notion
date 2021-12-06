@@ -1,4 +1,7 @@
 ## Instructions
+- You will need a `private_credentials.py` file which specifies two variables:
+  - `TOKEN_V2` (your API token)
+  - `URL` (the URL for the page)
 - Run `python movie_list_updater.py`
 ## Errors
 
